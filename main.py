@@ -4,17 +4,21 @@ import time
 
 
 def first_tread_run():
-    for j in range(10):
-        i = float(rnd.rand(1))
-        print("The random value from [0;1] is: %f" % i)
-    return 0
+    i = 0
+    while True:
+        if time.clock() > i:
+            r_val = float(rnd.rand(1))
+            print("The random value from [0;1] is: %f" % r_val)
+            i += 2
 
 
 def second_tread_run():
-    for j in range(10):
-        res = time.ctime()
-        print("The time is: %s" % res)
-    return 0
+    i = 0
+    while True:
+        if time.clock() > i:
+            local_time_val = time.ctime()
+            print("The local time is: %s" % local_time_val)
+            i += 11
 
 first_thread = tdn.Thread(target=first_tread_run)
 second_thread = tdn.Thread(target=second_tread_run)

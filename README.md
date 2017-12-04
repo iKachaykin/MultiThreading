@@ -1,2 +1,2 @@
-# MultiThreading-Proj.-1
-First project for MT. Completely done.
+# MultiThreading
+Projects which implement some multi-threading algorithms.

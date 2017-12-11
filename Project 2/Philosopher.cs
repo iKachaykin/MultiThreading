@@ -38,15 +38,21 @@ namespace MultiThreading2
 
         public bool TakeFork(Fork fork)
         {
-            if (fork.IsInUse)
-                return false;
-            fork.IsInUse = true;
-            return true;
+            lock (fork)
+            {
+                if (fork.IsInUse)
+                    return false;
+                fork.IsInUse = true;
+                return true;
+            }
         }
 
         public void ReturnFork(Fork fork)
         {
-            fork.IsInUse = false;
+            lock (fork)
+            {
+                fork.IsInUse = false;
+            }
         }
 
         public bool Eat()
@@ -102,8 +108,6 @@ namespace MultiThreading2
                 Downtime += thinkingTimer.ElapsedMilliseconds;
                 thinkingTimer.Reset();
             }
-
         }
-
     }
 }

@@ -11,7 +11,7 @@ namespace MultiThreading2
         {
             bool end = false;
             Stopwatch timer = new Stopwatch();
-            int philosopherNumber = 5, necessaryEating = 5, eatingTime = 4;
+            int philosopherNumber = 5, necessaryEating = int.MaxValue, eatingTime = 4;
             Philosopher[] phArr = new Philosopher[philosopherNumber];
             Fork[] forkArr = new Fork[philosopherNumber], tmpForkArr = new Fork[2];
             Thread[] threadArr = new Thread[philosopherNumber];
